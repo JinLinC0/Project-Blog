@@ -1,0 +1,6 @@
+# 后端项目中的提交忽略文件
+/blog-nest/dist
+/blog-nest/node_modules
+/blog-nest/build
+/blog-nest/logs
+/blog-nest.env
