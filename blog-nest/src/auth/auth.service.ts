@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import RegisterDto from './dto/register.dto';
 import LoginDto from './dto/login.dto';
 import { PrismaService } from '../prisma/prisma.service';
-import { hash } from 'argon2';
+import { hash, verify } from 'argon2';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
@@ -21,7 +21,7 @@ export class AuthService {
     }
 
     // 生成token   User为prisma中定义的User类型
-    async token({ name, id }) {
+    private async token({ name, id }) {
         // 使用jwt服务生成签名
         return {
             token: await this.jwt.signAsync({ 
@@ -33,7 +33,17 @@ export class AuthService {
     }
 
     // 登录服务
-    login(dto : LoginDto) {
-        
+    async login(dto : LoginDto) {
+        const user = await this.prisma.user.findUnique({
+            where: {
+                name: dto.name
+            }
+        })
+
+        if(! await verify(user!.password, dto.password)) {
+            throw new BadRequestException('密码输入错误');
+        }
+
+        return this.token(user!)
     }
 }

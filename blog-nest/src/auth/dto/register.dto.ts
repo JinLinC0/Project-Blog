@@ -1,6 +1,6 @@
 import { IsNotEmpty, Validate } from 'class-validator';
-import { IsNotExistsRule } from '../../common/rules/is-not-exists-rule';
-import { IsConfirmed } from '../../common/rules/is-confirm.rule';
+import { IsNotExistsRule } from '@/common/rules/is-not-exists.rule';
+import { IsConfirmed } from '@/common/rules/is-confirm.rule';
 
 export default class RegisterDto {
     @IsNotEmpty({ message: '用户名不能为空' })
