@@ -14,9 +14,18 @@ model user {
   password String
 }
 
+// 文章栏目表
+model category {
+  id       Int       @id @default(autoincrement()) @db.UnsignedInt
+  title    String
+  articles article[]
+}
+
 // 文章表
 model article {
-  id      Int    @id @default(autoincrement()) @db.UnsignedInt
-  title   String
-  content String @db.Text
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  title      String
+  content    String   @db.Text
+  category   category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId Int      @db.UnsignedInt
 }
