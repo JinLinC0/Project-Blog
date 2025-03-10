@@ -7,10 +7,8 @@ export class TransformInterceptor implements NestInterceptor {
     intercept(context: ExecutionContext, next: CallHandler) {
         return next.handle().pipe(
             map((data) => {
-                // 所有返回的数据都被data进行包裹
-                return {
-                    data,
-                };
+                // 文章的分页数据信息不要被data包裹
+                return data?.meta ? data : { data };
             }),
         );
     }
