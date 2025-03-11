@@ -12,6 +12,8 @@ async function bootstrap() {
   app.useGlobalInterceptors(new TransformInterceptor());
   // 设置接口前缀
   app.setGlobalPrefix('api');
+  // 定义静态的访问地址
+  app.useStaticAssets('uploads', { prefix: '/uploads' });
   await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
