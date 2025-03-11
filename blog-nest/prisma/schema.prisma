@@ -9,9 +9,10 @@ datasource db {
 
 // 用户表
 model user {
-  id       Int    @id @default(autoincrement()) @db.UnsignedInt
-  name     String @unique
+  id       Int     @id @default(autoincrement()) @db.UnsignedInt
+  name     String  @unique
   password String
+  role     String?
 }
 
 // 文章栏目表

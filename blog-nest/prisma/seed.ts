@@ -10,6 +10,7 @@ async function main() {
         data: {
             name: "admin",
             password: await hash("admin123"),
+            role: "admin",
         },
     });
 
