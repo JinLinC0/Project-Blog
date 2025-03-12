@@ -4,3 +4,13 @@
 /blog-nest/build
 /blog-nest/logs
 /blog-nest.env
+
+# 前端项目中的提交忽略文件
+/blog-vue/logs
+/blog-vue/node_modules
+/blog-vue/dist
+/blog-vue/dist-ssr
+/blog-vue/*.local
+
+
+
