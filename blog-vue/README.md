@@ -1,5 +1,15 @@
-# Vue 3 + TypeScript + Vite
+# README
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+前端脚手架项目，基于`Vue3`进行开发，包含了前端项目后台管理的基础部分（如界面、路由和权限控制等等），后续开发，直接在脚手架的基础上进行开发即可，极大的提高了效率
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+该前端脚手架的开发涉及到以下的相关知识：`Vue`、`JavaScript`、`Typescirpt`、`ElementPlus`、`Pinia`、`TailwindCss`、`Mockjs`、`Axios`、`Vue-router`、`wangeditor`和`toastEditor`等
+
+具体的页面呈现：界面做了移动端和电脑端的设计，支持多端展示
+
+![image-20250510150523131](public/image-20250510150523131.png)
+
+![image-20250510150419597](public/image-20250510150419597.png)
+
+![image-20250510150434138](public/image-20250510150434138.png)
+
+![image-20250510150548533](public/image-20250510150548533.png)
