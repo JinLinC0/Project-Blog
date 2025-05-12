@@ -5,8 +5,14 @@ const routes = [
     {
         // 定义网站主页
         path: "/",
-        name: "home",
-        component: () => import("@/views/home.vue")
+        component: () => import("@/layouts/blog.vue"),
+        children: [
+            {
+                name: 'home',
+                path: '',
+                component: () => import("@/views/blog/home.vue"),
+            }
+        ]
     },
     {
         // 登录注册路由

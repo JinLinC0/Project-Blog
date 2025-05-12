@@ -4,3 +4,15 @@ declare module '*.vue' {
     const component: DefineComponent<{}, {}, any>
     export default component
 }
+
+interface CategoryModel {
+    id: number;
+    name: string;
+}
+
+interface ArticleModel {
+    id: number;
+    title: string;
+    content: string;
+    categoryId: number;
+}
