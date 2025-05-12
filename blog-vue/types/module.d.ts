@@ -15,4 +15,8 @@ interface ArticleModel {
     title: string;
     content: string;
     categoryId: number;
+    category: {
+        id: number;
+        title: string;
+    }
 }

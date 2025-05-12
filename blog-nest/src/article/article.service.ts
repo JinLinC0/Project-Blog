@@ -26,6 +26,9 @@ export class ArticleService {
     const articles = await this.prisma.article.findMany({
       skip: (page - 1) * row,
       take: Number(row),
+      include: {
+        category: true,   // 将栏目信息放到文章的返回数据中
+      }
     });
 
     const total = await this.prisma.article.count();

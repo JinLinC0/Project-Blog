@@ -8,7 +8,7 @@ interface ResponsePageResult<T>{
     data: T[]
     meta: {
         current_page: number,
-        page_row: string,
+        page_row: number,
         total: number,
         total_pages: number
     }

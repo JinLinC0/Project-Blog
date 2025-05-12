@@ -5,8 +5,8 @@ import { ref } from "vue"
 export default () => {
     const pageResult = ref<ResponsePageResult<ArticleModel>>()
     // 通过接口获取栏目数据
-    const all = async () => {
-        pageResult.value = await getArticleList()
+    const all = async (page = 1) => {
+        pageResult.value = await getArticleList(page)
     }
     return { all, pageResult }
 }
