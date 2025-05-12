@@ -20,18 +20,26 @@ export class ArticleService {
   }
 
   // 分页查询文章数据
-  async findAll(page = 1) {
+  async findAll(args: Record<string, any>) {
     const row = this.config.get('ARTICLE_ROW');
+    const page = args.page ? +args.page : 1;
     // 查询到所有文章，并设置分页
     const articles = await this.prisma.article.findMany({
       skip: (page - 1) * row,
       take: Number(row),
+      where: {
+        category: args.category ? { id: +args.category } : {},
+      },
       include: {
         category: true,   // 将栏目信息放到文章的返回数据中
       }
     });
 
-    const total = await this.prisma.article.count();
+    const total = await this.prisma.article.count({
+      where: {
+        category: args.category ? { id: +args.category } : {},
+      },
+    });
 
     return {
       meta: {

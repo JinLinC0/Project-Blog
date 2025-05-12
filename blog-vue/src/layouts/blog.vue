@@ -1,11 +1,11 @@
 <template>
     <main class="container">
-        <div class="log">
+        <div class="log cursor-pointer" @click="getArticleList(1, {})">
             <img src="/images/blog.svg" class="w-[100px]">
         </div>
         <nav>
             <section>
-                <div v-for="category of categories" :key="category.id">
+                <div v-for="category of categories" :key="category.id" @click="getArticleList(1, { category: category.id })">
                     {{ category.title }}
                 </div>
             </section>
@@ -19,10 +19,13 @@
 
 <script setup>
 import useCategory from '@/composables/useCategory';
+import useArticle from '@/composables/useArticle';
 import router from '@/router';
 
 const { all, categories } = useCategory();
 all()
+
+const { all:getArticleList } = useArticle();
 </script>
 
 <style lang="scss" scoped>

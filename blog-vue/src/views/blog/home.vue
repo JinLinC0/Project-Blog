@@ -4,7 +4,7 @@
             <router-link to="/">
                 {{ article.title }}
             </router-link>
-            <aside>
+            <aside @click="all(1, { category: article.categoryId })">
                 {{ article.category.title }}
             </aside>
         </section>

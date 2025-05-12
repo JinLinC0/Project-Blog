@@ -13,8 +13,8 @@ export class ArticleController {
   }
 
   @Get()
-  findAll(@Query('page', new DefaultValuePipe(1)) page: number) {
-    return this.articleService.findAll(page);
+  findAll(@Query() args = {}) {
+    return this.articleService.findAll(args);
   }
 
   @Get(':id')
