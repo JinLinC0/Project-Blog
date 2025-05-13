@@ -9,5 +9,15 @@ export default {
             path: '',
             component: () => import('@/views/blog/home.vue'),
         },
+        {
+            name: 'article',
+            path: 'article/:id',
+            component: () => import('@/views/blog/article.vue'),
+        },
+        {
+            name: 'category',
+            path: 'category/:cid',
+            component: () => import('@/views/blog/category.vue'),
+        },
     ]
 } as RouteRecordRaw

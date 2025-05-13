@@ -1,15 +1,20 @@
-import { getArticleList } from "@/api/article"
+import { getArticleById, getArticleList } from "@/api/article"
 import { ref } from "vue"
-
-const pageResult = ref<ResponsePageResult<ArticleModel>>()
-let params = {}
 
 // 存放了获取栏目的组合Api
 export default () => {
+    const pageResult = ref<ResponsePageResult<ArticleModel>>()  // 文章列表数据
+    let categoryId = <any>null;  // 栏目id
+    const article = ref<ArticleModel>()  // 具体的文章数据
+    
     // 通过接口获取栏目数据
-    const all = async (page = 1, args?: Record<string, any>) => {
-        if(args) params = args  // 如果有参数，则将参数赋值给params，用于当前状态的记录
-        pageResult.value = await getArticleList(page, params)
+    const all = async (page = 1, cid?: any) => {
+        if (cid) categoryId = cid
+        pageResult.value = await getArticleList(page, categoryId)
     }
-    return { all, pageResult }
+
+    const find = async (id: number) => {
+        article.value = await getArticleById(id)
+    }
+    return { all, pageResult, find, article }
 }
