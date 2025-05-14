@@ -6,14 +6,14 @@ export class UploadController {
     @Post('image')
     @UploadImage()
     image(@UploadedFile() file: Express.Multer.File) {
-        return file
+        return {
+            url: `http://localhost:3000/${file.path}`
+        }
     }
 
     @Post('document')
     @UploadDocument()
     document(@UploadedFile() file: Express.Multer.File) {
-        return {
-            url: `http://localhost:3000/${file.path}`
-        }
+        return file
     }
 }

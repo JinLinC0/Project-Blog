@@ -12,9 +12,9 @@
 <script setup lang="ts">
 import '@wangeditor/editor/dist/css/style.css' // 引入 css
 import { onBeforeUnmount, ref, shallowRef } from 'vue'
-import { ApiEnum } from '@/enum/apiEnum';
 // @ts-ignore
 import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
+import { uploadImage } from '@/api/upload';
 
 interface Props {
     modelValue?: string
@@ -38,7 +38,13 @@ const editorConfig = {
     placeholder: '请输入内容...',
     MENU_CONF: {
         uploadImage: {
-            server: ApiEnum.UPLOAD_IMAGE_URL,  // 上传图片接口
+            async customUpload(file: File, insertFn: any) {
+                const from = new FormData();
+                from.append('file', file, file.name);
+                const res = await uploadImage(from);
+                console.log(res)
+                insertFn(res.data.url, '', res.data.url);
+            }
         }
     }
 }
