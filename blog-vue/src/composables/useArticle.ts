@@ -1,4 +1,4 @@
-import { addArticle, getArticleById, getArticleList, updateArticle } from "@/api/article"
+import { addArticle, deleteArticle, getArticleById, getArticleList, updateArticle } from "@/api/article"
 import { ref } from "vue"
 
 // 存放了获取栏目的组合Api
@@ -26,5 +26,10 @@ export default () => {
     const update = async (data: ArticleModel) => {
         await updateArticle(data)
     }
-    return { all, pageResult, find, article, add, update }
+
+    // 删除文章
+    const del = async (articleId: Number) => {
+        await deleteArticle(articleId)
+    }
+    return { all, pageResult, find, article, add, update, del }
 }

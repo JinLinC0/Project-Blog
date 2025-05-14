@@ -16,11 +16,14 @@ import wangEditor from '@/components/wangEditor/editor.vue';
 import useArticle from '@/composables/useArticle';
 import useCategory from '@/composables/useCategory';
 import { onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router';
+import { ElMessage } from 'element-plus'
+
 const { find, article, update } = useArticle();
 const { all, categories } = useCategory();
 
 const route = useRoute();
+const router = useRouter();
 
 onMounted(async () => {
     await find(Number(route.params.id));
@@ -30,9 +33,15 @@ onMounted(async () => {
 const onSubmit = async () => {
     try {
         await update(article.value!);   // !是ts中的强制类型语法，说明这个值一定不是undefined
-        // router.push('/');
+        ElMessage({
+            message: '更新成功',
+            type: 'success',
+        })
+        setTimeout(() => {
+            router.push('/');
+        }, 1000)
     } catch (error) {
-        
+        ElMessage.error('更新失败')
     }
 }
 

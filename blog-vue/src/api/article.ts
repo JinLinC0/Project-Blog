@@ -32,3 +32,11 @@ export function updateArticle(data: any) {
         data
     })
 }
+
+// 根据文章id删除文章
+export function deleteArticle(articleId: Number) {
+    return http.request({
+        url: `/api/article/${articleId}`,
+        method: 'delete'
+    })
+}
