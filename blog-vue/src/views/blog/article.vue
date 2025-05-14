@@ -4,7 +4,7 @@
             {{ article?.title }}
             <div>
                 <el-button type="primary" size="small" @click="$router.push(`/update/${article?.id}`)">编辑文章</el-button>
-                <el-button type="danger" size="small" @click="deleteArticleByID()">删除文章</el-button>
+                <el-button type="danger" size="small" @click="delDialogClose()">删除文章</el-button>
             </div>
         </h1>
         <time>发表时间：{{ article?.createdAt }} &nbsp;&nbsp;&nbsp;&nbsp; 更新时间：{{ article?.updatedAt }}</time>
@@ -12,13 +12,26 @@
             {{ article?.content }}
         </p>
     </main>
+
+    <el-dialog v-model="delDialogShow" title="警告" width="300" :before-close="handleClose">
+        <span>确定删除文章？</span>
+        <template #footer>
+            <div class="dialog-footer">
+                <el-button @click="delDialogShow = false">取消</el-button>
+                <el-button type="danger" @click="deleteArticleByID">
+                    确定
+                </el-button>
+            </div>
+        </template>
+    </el-dialog>
 </template>
 
 <script setup>
 import useArticle from '@/composables/useArticle';
 import { useRoute, useRouter } from 'vue-router';
 import { onMounted } from 'vue';
-import { ElMessage } from 'element-plus'
+import { ElMessage } from 'element-plus';
+import { ref } from 'vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -27,6 +40,13 @@ const { find, article, del } = useArticle();
 onMounted(async () => {
     await find(Number(route.params.id));
 });
+
+const delDialogShow = ref(false);
+
+// 删除文章弹窗
+const delDialogClose = () => {
+    delDialogShow.value = true;
+}
 
 const deleteArticleByID = async () => {
     try {

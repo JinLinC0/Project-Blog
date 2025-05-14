@@ -5,7 +5,7 @@
         </div>
         <nav>
             <section>
-                <el-button class="md:w-[150px]" color="#626aef" :dark="isDark" v-for="category of categories" :key="category.id" 
+                <el-button class="md:w-[150px]" color="#626aef" v-for="category of categories" :key="category.id" 
                     :class="{ active: +$route.params.cid == category.id }"
                     @click="$router.push(`/category/${category.id}`)">
                     {{ category.title }}
