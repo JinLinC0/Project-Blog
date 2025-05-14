@@ -29,7 +29,7 @@ const editorRef = shallowRef()  // 编辑器实例，必须用 shallowRef
 const mode = 'default'
 
 // 内容 HTML
-const valueHtml = ref(props.modelValue)
+const valueHtml = ref(props.modelValue.startsWith('<p>') ? props.modelValue : `<p>${props.modelValue}</p>`)
 
 const toolbarConfig = {}
 

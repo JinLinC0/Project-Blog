@@ -23,6 +23,11 @@ export default {
             name: 'create',
             path: 'create',
             component: () => import('@/views/blog/create.vue'),
+        },
+        {
+            name: 'update',
+            path: 'update/:id',
+            component: () => import('@/views/blog/update.vue'),
         }
     ]
 } as RouteRecordRaw

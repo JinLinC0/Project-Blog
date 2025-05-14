@@ -23,3 +23,12 @@ export function addArticle(data: any) {
         data
     })
 }
+
+// 根据文章id更新文章
+export function updateArticle(data: any) {
+    return http.request({
+        url: `/api/article/${data.id}`,
+        method: 'patch',
+        data
+    })
+}

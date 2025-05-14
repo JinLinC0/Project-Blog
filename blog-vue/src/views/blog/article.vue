@@ -1,6 +1,9 @@
 <template>
     <main>
-        <h1>{{ article?.title }}</h1>
+        <h1>
+            {{ article?.title }}
+            <el-button type="primary" size="small" @click="$router.push(`/update/${article?.id}`)">编辑文章</el-button>
+        </h1>
         <time>发表时间：{{ article?.createdAt }} &nbsp;&nbsp;&nbsp;&nbsp; 更新时间：{{ article?.updatedAt }}</time>
         <p>
             {{ article?.content }}
@@ -24,7 +27,7 @@ onMounted(async () => {
 <style lang="scss" scoped>
 main {
     h1 {
-        @apply mb-4 border-b border-gray-500 pb-3 mt-8 text-2xl text-gray-600;
+        @apply mb-4 border-b border-gray-500 pb-3 mt-8 text-2xl text-gray-600 flex justify-between items-center;
     }
 
     time {
