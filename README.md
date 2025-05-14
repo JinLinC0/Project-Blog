@@ -34,6 +34,6 @@
 
 手机端具体功能界面：
 
-<img src="D:\Myproject\develop-study-notes\images\image-20250514225903141.png" alt="image-20250514225903141" style="zoom: 33%;" /><img src="D:\Myproject\develop-study-notes\images\image-20250514230515141.png" alt="image-20250514230515141" style="zoom:33%;" /><img src="D:\Myproject\develop-study-notes\images\image-20250514230712630.png" alt="image-20250514230712630" style="zoom:33%;" />
+<img src="/public/image-20250514225903141.png" alt="image-20250514225903141" style="zoom: 33%;" /><img src="/public/image-20250514230515141.png" alt="image-20250514230515141" style="zoom:33%;" /><img src="/public/image-20250514230712630.png" alt="image-20250514230712630" style="zoom:33%;" />
 
-<img src="D:\Myproject\develop-study-notes\images\image-20250514231812266.png" alt="image-20250514231812266" style="zoom:33%;" /><img src="D:\Myproject\develop-study-notes\images\image-20250514231915670.png" alt="image-20250514231915670" style="zoom:33%;" /><img src="D:\Myproject\develop-study-notes\images\image-20250514232033392.png" alt="image-20250514232033392" style="zoom:33%;" />
+<img src="/public/image-20250514231812266.png" alt="image-20250514231812266" style="zoom:33%;" /><img src="/public/image-20250514231915670.png" alt="image-20250514231915670" style="zoom:33%;" /><img src="/public/image-20250514232033392.png" alt="image-20250514232033392" style="zoom:33%;" />
