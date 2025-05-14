@@ -1,11 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, DefaultValuePipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, DefaultValuePipe, UseInterceptors, ClassSerializerInterceptor, SerializeOptions } from '@nestjs/common';
 import { ArticleService } from './article.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
+import { Article } from './entities/article.entity';
 
 @Controller('article')
+@UseInterceptors(ClassSerializerInterceptor)
 export class ArticleController {
-  constructor(private readonly articleService: ArticleService) {}
+  constructor(private readonly articleService: ArticleService) { }
 
   @Post()
   create(@Body() createArticleDto: CreateArticleDto) {
@@ -18,8 +20,10 @@ export class ArticleController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.articleService.findOne(+id);
+  @SerializeOptions({ strategy: 'exposeAll' })  // 所有的结果都要，可以省略
+  async findOne(@Param('id') id: string) {
+    const article = await this.articleService.findOne(+id);
+    return new Article(article);
   }
 
   @Patch(':id')
