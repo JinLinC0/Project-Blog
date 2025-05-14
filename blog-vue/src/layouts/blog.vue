@@ -12,7 +12,7 @@
                 </div>
             </section>
             <section>
-                <el-button type="primary" size="default">文章发表</el-button>
+                <el-button type="primary" size="default" @click="router.push('create')">文章发表</el-button>
                 <el-button type="success" size="default" @click="router.push('/')">回到首页</el-button>
             </section>
         </nav>

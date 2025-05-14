@@ -14,3 +14,12 @@ export function getArticleById(id: number) {
         url: `/api/article/${id}`
     }).then(res => res.data)
 }
+
+// 添加文章
+export function addArticle(data: any) {
+    return http.request({
+        url: '/api/article',
+        method: 'post',
+        data
+    })
+}

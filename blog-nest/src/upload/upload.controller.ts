@@ -12,6 +12,8 @@ export class UploadController {
     @Post('document')
     @UploadDocument()
     document(@UploadedFile() file: Express.Multer.File) {
-        return file
+        return {
+            url: `http://localhost:3000/${file.path}`
+        }
     }
 }

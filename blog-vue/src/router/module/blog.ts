@@ -19,5 +19,10 @@ export default {
             path: 'category/:cid',
             component: () => import('@/views/blog/category.vue'),
         },
+        {
+            name: 'create',
+            path: 'create',
+            component: () => import('@/views/blog/create.vue'),
+        }
     ]
 } as RouteRecordRaw

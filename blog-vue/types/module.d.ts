@@ -7,7 +7,7 @@ declare module '*.vue' {
 
 interface CategoryModel {
     id: number;
-    name: string;
+    title: string;
 }
 
 interface ArticleModel {
