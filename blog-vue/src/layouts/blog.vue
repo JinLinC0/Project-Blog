@@ -5,11 +5,11 @@
         </div>
         <nav>
             <section>
-                <div v-for="category of categories" :key="category.id" 
+                <el-button class="md:w-[150px]" color="#626aef" :dark="isDark" v-for="category of categories" :key="category.id" 
                     :class="{ active: +$route.params.cid == category.id }"
                     @click="$router.push(`/category/${category.id}`)">
                     {{ category.title }}
-                </div>
+                </el-button>
             </section>
             <section>
                 <el-button type="primary" size="default" @click="router.push('create')">文章发表</el-button>
@@ -43,12 +43,6 @@ main.container {
         @apply flex md:flex-row flex-col md:justify-between md:items-center;
         section {
             @apply flex gap-2 items-center flex-wrap;
-            div {
-                @apply bg-slate-200 text-gray-500 py-2 cursor-pointer hover:shadow-lg duration-300;
-                &.active {
-                    @apply bg-fuchsia-950 text-white;
-                }
-            }
             &:nth-of-type(2) {
                 @apply flex justify-between mt-3 md:mt-0 ml-0;
                 button {

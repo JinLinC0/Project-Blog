@@ -42,7 +42,6 @@ const editorConfig = {
                 const from = new FormData();
                 from.append('file', file, file.name);
                 const res = await uploadImage(from);
-                console.log(res)
                 insertFn(res.data.url, '', res.data.url);
             }
         }
