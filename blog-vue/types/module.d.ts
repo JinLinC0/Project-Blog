@@ -15,6 +15,8 @@ interface ArticleModel {
     title: string;
     content: string;
     categoryId: number;
+    createdAt: string;
+    updatedAt: string;
     category: {
         id: number;
         title: string;
